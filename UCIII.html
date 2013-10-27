@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>手机横、竖屏事件</title> 
+        <script language="javascript" type="text/javascript">
+            //屏幕方向标识，0横屏，其他值竖屏
+            var orientation=0;
+            //转屏事件，内部功能可以自定义
+            function screenOrientationEvent(){
+                if(orientation == 0)document.getElementById("change").value="横";
+                else document.getElementById("change").value="竖";
+            }
+            var innerWidthTmp = window.innerWidth;
+            //横竖屏事件监听方法
+            function screenOrientationListener(){
+                try{
+                    var iw = window.innerWidth;     
+                    //屏幕方向改变处理
+                    if(iw != innerWidthTmp){
+                        if(iw>window.innerHeight)orientation = 90;
+                        else orientation = 0;
+                        //调用转屏事件
+                        screenOrientationEvent();
+                        innerWidthTmp = iw;
+                    }
+                } catch(e){alert(e);};
+                //间隔固定事件检查是否转屏，默认500毫秒
+                setTimeout("screenOrientationListener()",500);
+            }
+            //启动横竖屏事件监听
+            screenOrientationListener();
+        </script>
+    </head> 
+    <body onload="screenOrientationEvent()"> 
+        <input id="change" type="text" value=""/>
+    </body>
+</html>
