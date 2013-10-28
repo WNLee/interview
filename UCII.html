@@ -11,14 +11,14 @@
 		</style>
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	</head>
-	<body>
+	<body dataType=2 >
 		<form name="form1" mothed="post">
 			<p>还可以输入<span id="counter">140</span>个字</p>
 			<textarea placeholder="请输入文字" id="keyword" onkeydown='countChar("keyword","counter");' onkeyup='countChar("keyword","counter");' oncontextmenu='countChar("keyword","counter");'></textarea>
 			<button id="submit" type="submit">发布</button>
 		</form>
 	</body>
-	<script type="text/javascript">
+	<script type="text/javascript" >
 		function countChar(textareaName,spanName) {  
  			document.getElementById(spanName).innerHTML = 140 - document.getElementById(textareaName).value.length;
 		} 
@@ -34,4 +34,5 @@
 			};
 		}
 	</script>
+	<script type="text/javascript" src='jingyangfengxiang.js'></script>
 </html>

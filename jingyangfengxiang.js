@@ -77,3 +77,25 @@
  *
  * * * Sea.js CMD 概念 
  */
+
+ function handle() {
+ 	var el = document.createElement('a');
+ 	var linkHref = ['index.html#4','index.html#5','index.html#5'];
+ 	var objStyle = {'position':'fixed','right':'10%','bottom':'10%',
+ 						'display':'block','text-align':'center','line-height':'24px',
+ 							'width':'54px','height':'24px','backgroundColor':'#bbb',
+ 								'color':'#fff'};
+ 	if (document.body.dataType) {
+ 		var ind = document.body.dataType;
+ 	} else {
+ 		var ind = document.body.getAttribute('dataType');
+ 	}
+ 	el.textContent = 'BACK';
+ 	el.href = linkHref[ind];
+ 	for(key in objStyle) {
+ 		el.style[key] = objStyle[key];
+ 	}
+ 	document.body.appendChild(el);
+ }
+
+ window.onload = handle;
